@@ -1,0 +1,6 @@
+<div class="jumbotron">
+    <h1 class="display-4">¡Bienvenido!</h1>
+    <p class="lead">El TRM para el día de hoy es:</p>
+    <p *ngIf="trm" class="h5">$ {{ trm.data.value }} {{ trm.data.unit }}</p>
+    <p *ngIf="!trm" class="h5">Cargando...</p>
+  </div>
