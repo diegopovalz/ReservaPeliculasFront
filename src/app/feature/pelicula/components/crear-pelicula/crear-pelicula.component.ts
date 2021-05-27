@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PeliculaService } from '../../shared/service/pelicula.service';
 
-const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
-const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
+const LONGITUD_MINIMA_PERMITIDA_TEXTO = 5;
+const LONGITUD_MAXIMA_PERMITIDA_NOMBRE_O_AUTOR = 30;
+const LONGITUD_MAXIMA_PERMITIDA_DESCRIPCION = 40;
 
 @Component({
   selector: 'app-crear-pelicula',
@@ -12,23 +13,26 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 })
 export class CrearPeliculaComponent implements OnInit {
 
-  peliculaForm: FormGroup
+  public peliculaForm: FormGroup
 
   constructor(protected http: PeliculaService) { }
 
   ngOnInit(): void {
     this.construirForm()
+    console.log(this.peliculaForm);
   }
 
-  crear() {
-    this.http.crearPelicula(this.peliculaForm.value)
+  public crear() {
+    console.log('pruebas');
+    
+    //this.http.crearPelicula(this.peliculaForm.value)
   }
 
   private construirForm() {
     this.peliculaForm = new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
-      autor: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      descripcion: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
+      nombre: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_NOMBRE_O_AUTOR)]),
+      autor: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_NOMBRE_O_AUTOR)]),
+      descripcion: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_DESCRIPCION)])
     })
   }
 
