@@ -1,0 +1,31 @@
+<div class="modal fade in mt-5" id="modalReserva" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="h5 modal-title">Reservar Película: <small>{{ pelicula?.nombre }}</small> </p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="limpiarCampos()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mb-0 pb-0">
+            <div class="dropdown mb-3">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tipo de Reserva
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <button class="dropdown-item" type="button" (click)="conTipo('ESTANDAR'); conValor(20)" [ngClass]="{'active': tipo == 'ESTANDAR'}">Estándar</button>
+                    <button class="dropdown-item" type="button" (click)="conTipo('PREMIUM'); conValor(50)" [ngClass]="{'active': tipo == 'PREMIUM'}">Premium</button>
+                </div>
+            </div>
+            <div *ngIf="tipo">
+                <p>Tipo de Reserva seleccionado: <b>{{ tipo | titlecase }}</b></p>
+                <p>Valor para el tipo de reserva: <b>{{ valor }}</b></p>
+            </div>
+        </div>
+        <div class="modal-footer mt-0">
+          <button type="button" class="btn btn-primary">Reservar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="limpiarCampos()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+</div>

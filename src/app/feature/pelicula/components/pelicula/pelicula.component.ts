@@ -9,10 +9,15 @@ import { Pelicula } from '../../shared/model/pelicula';
 export class PeliculaComponent implements OnInit {
 
   @Input() peliculas: Pelicula[]
+  public peliculaSeleccionada: Pelicula
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public conPelicula(pelicula: Pelicula) {
+    this.peliculaSeleccionada = pelicula
   }
 
 }

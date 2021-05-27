@@ -6,6 +6,8 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { ListaPeliculasComponent } from './components/lista-peliculas/lista-peliculas.component';
 import { CrearPeliculaComponent } from './components/crear-pelicula/crear-pelicula.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
+import { ReservaPeliculaComponent } from '../reserva/components/reserva-pelicula/reserva-pelicula.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,11 +15,14 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
     PeliculasComponent,
     PeliculaComponent,
     ListaPeliculasComponent,
-    CrearPeliculaComponent
+    CrearPeliculaComponent,
+    ReservaPeliculaComponent
   ],
   imports: [
     CommonModule,
-    PeliculaRoutingModule
+    PeliculaRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PeliculaModule { }

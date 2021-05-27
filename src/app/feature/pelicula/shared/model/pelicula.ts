@@ -1,13 +1,13 @@
 export class Pelicula {
     id?: number
-    nombre: string
-    autor: string
-    descripcion: string
+    nombre?: string
+    autor?: string
+    descripcion?: string
 
-    constructor(id: number, nombre: string, autor: string, descripcion: string) {
-        this.id = id
+    constructor(nombre: string, autor?: string, descripcion?: string, id?: number) {
         this.nombre = nombre
         this.autor = autor
         this.descripcion = descripcion
+        this.id = id
     }
 }

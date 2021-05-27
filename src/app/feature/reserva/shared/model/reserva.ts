@@ -6,10 +6,10 @@ export class Reserva {
     fechaReserva: string
     pelicula: Pelicula
 
-    constructor(id: number, tipoReserva: string, fechaReserva: string, pelicula: Pelicula) {
-        this.id = id
+    constructor(tipoReserva: string, fechaReserva: string, pelicula: Pelicula, id?: number) {
         this.tipoReserva = tipoReserva
         this.fechaReserva = fechaReserva
         this.pelicula = pelicula
+        this.id = id
     }
 }

@@ -17,7 +17,7 @@ export class ListaPeliculasComponent implements OnInit {
       autor: 'Autor de Prueba'
     },
     {
-      nombre: 'Película de Prueba',
+      nombre: 'Prueba 2',
       descripcion: 'Descripcion de Prueba lo más larga posible',
       autor: 'Autor de Prueba'
     }
@@ -25,10 +25,7 @@ export class ListaPeliculasComponent implements OnInit {
 
   constructor(protected service: PeliculaService) { }
 
-  ngOnInit(): void { 
-    if(this.peliculas) {
-      console.log(this.peliculas);
-    }
+  ngOnInit(): void {
     this.conseguirPeliculas()
   }
 

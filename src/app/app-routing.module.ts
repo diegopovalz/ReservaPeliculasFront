@@ -8,6 +8,7 @@ import { HomeComponent } from '@home/home.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
+  { path: 'producto', loadChildren: () => import('../app/feature/producto/producto.module').then(mod => mod.ProductoModule) },
   { path: 'pelicula', loadChildren: () => import('../app/feature/pelicula/pelicula.module').then(mod => mod.PeliculaModule) },
   { path: '**', component: PageNotFoundComponent }
 ];

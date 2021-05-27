@@ -1,11 +1,11 @@
 <div *ngFor="let pelicula of peliculas">
-  <div class="card col-md-8 mb-2">
+  <div class="card col-sm-6 mb-2 pb-0">
     <div class="card-body">
       <h5 class="card-title">{{ pelicula.nombre }}</h5>
-      <hr>
       <p class="card-text"><small class="text-muted">Autor: {{ pelicula.autor }}</small></p>
       <p class="card-text">{{ pelicula.descripcion }}</p>
-      <button class="btn btn-primary btn-reserva">Reservar</button>
+      <button class="btn btn-primary btn-reserva" data-toggle="modal" data-target="#modalReserva" (click)="conPelicula(pelicula)">Reservar</button>
     </div>
   </div>
 </div>
+<app-reserva-pelicula [pelicula]="peliculaSeleccionada"></app-reserva-pelicula>

@@ -1,1 +1,31 @@
-<p>crear-pelicula works!</p>
+<h1>Registrar Película</h1>
+<br>
+<form [formGroup]="peliculaForm" (ngSubmit)="crear()">
+  <div class="row mb-1">
+    <div class="col-sm-2">
+      <label>Nombre</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="nombrePelicula" name="nombre" placeholder="Nombre Película" class="form-control"
+        formControlName="nombre">
+    </div>
+  </div>
+  <div class="row mb-1">
+    <div class="col-sm-2">
+      <label>Autor:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="autorPelicula" name="autor" placeholder="Autor Película"
+        class="form-control" formControlName="autor">
+    </div>
+  </div>
+  <div class="row mb-1">
+    <div class="col-sm-2">
+      <label>Descripción:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="descripcionPelicula" name="descripcion" placeholder="Descripción Película"
+        class="form-control" formControlName="descripcion">
+    </div>
+  </div>
+</form>
