@@ -7,9 +7,7 @@ import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
-
-
-
+import { PeliculaModule } from './feature/pelicula/pelicula.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +18,8 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
-    CoreModule
+    CoreModule,
+    PeliculaModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],

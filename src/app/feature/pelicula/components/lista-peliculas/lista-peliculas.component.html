@@ -1,0 +1,11 @@
+<h1>Listado de Peliculas</h1>
+<div class="col-md-6 mb-3 pl-0">
+    <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="Nombre de Película (Coincidencia exacta)" aria-label="Search"
+          aria-describedby="search-addon" />
+        <button type="button" class="btn btn-outline-primary">Buscar</button>   
+        <button type="button" class="btn btn-outline-primary">Limpiar</button>
+    </div>
+</div>
+<app-pelicula *ngIf="peliculas.length > 0" [peliculas]="peliculas"></app-pelicula>
+<p *ngIf="peliculas.length == 0" class="h5">Cargando...</p>

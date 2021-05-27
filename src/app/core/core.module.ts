@@ -9,9 +9,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [ToolbarComponent, NavbarComponent],
+  declarations: [ToolbarComponent, NavbarComponent, PageNotFoundComponent],
   imports: [
     CommonModule,
     RouterModule

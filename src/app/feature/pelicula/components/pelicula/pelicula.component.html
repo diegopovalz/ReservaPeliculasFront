@@ -1,0 +1,11 @@
+<div *ngFor="let pelicula of peliculas">
+  <div class="card col-md-8 mb-2">
+    <div class="card-body">
+      <h5 class="card-title">{{ pelicula.nombre }}</h5>
+      <hr>
+      <p class="card-text"><small class="text-muted">Autor: {{ pelicula.autor }}</small></p>
+      <p class="card-text">{{ pelicula.descripcion }}</p>
+      <button class="btn btn-primary btn-reserva">Reservar</button>
+    </div>
+  </div>
+</div>
