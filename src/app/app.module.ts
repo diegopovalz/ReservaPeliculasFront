@@ -8,6 +8,7 @@ import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { PeliculaModule } from './feature/pelicula/pelicula.module';
+import { ReservaModule } from './feature/reserva/reserva.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PeliculaModule } from './feature/pelicula/pelicula.module';
     AppRoutingModule,
     ProductoModule,
     CoreModule,
-    PeliculaModule
+    PeliculaModule,
+    ReservaModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],

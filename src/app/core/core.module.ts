@@ -10,14 +10,15 @@ import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
-  declarations: [ToolbarComponent, NavbarComponent, PageNotFoundComponent],
+  declarations: [ToolbarComponent, NavbarComponent, PageNotFoundComponent, AlertComponent],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [ToolbarComponent, NavbarComponent],
+  exports: [ToolbarComponent, NavbarComponent, AlertComponent],
   providers: [
     HttpService,
     SecurityGuard,

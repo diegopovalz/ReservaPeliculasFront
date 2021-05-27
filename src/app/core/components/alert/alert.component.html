@@ -1,0 +1,8 @@
+<div class="alert alert-dismissible text-center" [ngClass]="exito ? 'alert-success' : 'alert-warning'" role="alert">
+  <h4 class="alert-heading">{{ titulo }}</h4>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <hr>
+  <p class="mb-0">{{ mensaje }}</p>
+</div>

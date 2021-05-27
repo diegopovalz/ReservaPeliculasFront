@@ -3,29 +3,46 @@
       <div class="modal-content">
         <div class="modal-header">
           <p class="h5 modal-title">Reservar Película: <small>{{ pelicula?.nombre }}</small> </p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="limpiarCampos()">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #cerrarSinLimpiarBtn>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body mb-0 pb-0">
-            <div class="dropdown mb-3">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Tipo de Reserva
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button class="dropdown-item" type="button" (click)="conTipo('ESTANDAR'); conValor(20)" [ngClass]="{'active': tipo == 'ESTANDAR'}">Estándar</button>
-                    <button class="dropdown-item" type="button" (click)="conTipo('PREMIUM'); conValor(50)" [ngClass]="{'active': tipo == 'PREMIUM'}">Premium</button>
-                </div>
+        <div class="modal-body mb-2 pb-0">
+          <form [formGroup]="crearReservaForm">
+            <div class="row mb-1">
+              <div class="col-md-6">
+                <label>Tipo de Reserva</label>
+              </div>
+              <div class="col-md-6">
+                <select validar name="tipoReserva" id="tipoReserva" class="form-control" formControlName="tipoReserva" #tipoReserva (change)="asignarTipo(tipoReserva.value)">
+                  <option value="ESTANDAR">Estandar</option>
+                  <option value="PREMIUM">Premium</option>
+                </select>
+              </div>
             </div>
-            <div *ngIf="tipo">
-                <p>Tipo de Reserva seleccionado: <b>{{ tipo | titlecase }}</b></p>
-                <p>Valor para el tipo de reserva: <b>{{ valor }}</b></p>
+            <div *ngIf="reserva.tipoReserva" class="row mb-1">
+              <div class="col-md-6">
+                <label>Valor</label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" name="valor" id="valorReserva" autocomplete="off" class="form-control" value="{{ valorReserva }}" readonly>
+              </div>
             </div>
+            <div *ngIf="reserva.tipoReserva" class="row mb-1">
+              <div class="col-md-6">
+                <label>Fecha de Reserva</label>
+              </div>
+              <div class="col-md-6">
+                <input validar type="date" class="form-control" name="fecha" id="fechaReserva" formControlName="fechaReserva" (input)="conFecha(fecha.value)" autocomplete="off" #fecha>
+              </div>
+            </div>
+          </form>
         </div>
         <div class="modal-footer mt-0">
-          <button type="button" class="btn btn-primary">Reservar</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="limpiarCampos()">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="crearReserva()">Reservar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="limpiarCampos()" #cerrarBtn>Cancelar</button>
         </div>
       </div>
     </div>
 </div>
+<app-alert *ngIf="titulo && mensaje" [titulo]="titulo" [mensaje]="mensaje" [exito]="exito"></app-alert>

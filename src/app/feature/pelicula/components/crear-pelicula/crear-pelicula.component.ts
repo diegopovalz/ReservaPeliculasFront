@@ -14,18 +14,27 @@ const LONGITUD_MAXIMA_PERMITIDA_DESCRIPCION = 40;
 export class CrearPeliculaComponent implements OnInit {
 
   public peliculaForm: FormGroup
+  titulo: string
+  mensaje: string
+  exito: boolean = false
 
   constructor(protected http: PeliculaService) { }
 
   ngOnInit(): void {
     this.construirForm()
-    console.log(this.peliculaForm);
   }
 
   public crear() {
-    console.log('pruebas');
-    
-    //this.http.crearPelicula(this.peliculaForm.value)
+    this.http.crearPelicula(this.peliculaForm.value).subscribe((res: any) => {
+      this.titulo = 'Película creada'
+      this.mensaje = `La película fue creada con éxito con ID ${res.valor}`
+      this.exito = true
+      this.peliculaForm.reset()
+    }, (err: any) => {
+      this.titulo = 'Error'
+      this.mensaje = `La película no pudo ser creada. Mensaje: ${err.error?.mensaje}`
+      this.exito = false
+    })
   }
 
   private construirForm() {

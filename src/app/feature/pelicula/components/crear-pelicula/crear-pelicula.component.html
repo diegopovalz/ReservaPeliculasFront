@@ -6,8 +6,8 @@
       <label>Nombre</label>
     </div>
     <div class="col-sm-4">
-      <input validar type="text" id="nombrePelicula" name="nombre" placeholder="Nombre Película" class="form-control"
-        formControlName="nombre" autocomplete="off">
+      <input validar type="text" id="nombrePelicula" name="nombre" placeholder="Nombre Película" 
+        class="form-control" formControlName="nombre" autocomplete="off">
     </div>
   </div>
   <div class="row mb-1">
@@ -32,3 +32,4 @@
         [disabled]="!(peliculaForm.controls.nombre.value && peliculaForm.controls.autor.value && peliculaForm.controls.descripcion.value)"
         (click)="crear()">Guardar</button>
 </form>
+<app-alert *ngIf="titulo && mensaje" [titulo]="titulo" [mensaje]="mensaje" [exito]="exito"></app-alert>

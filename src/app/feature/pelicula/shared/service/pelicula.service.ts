@@ -21,6 +21,7 @@ export class PeliculaService {
   }
 
   public crearPelicula(pelicula: Pelicula) {
-    return this.http.doPost<Pelicula, boolean>(`${this.endpoint}/`, pelicula, this.http.optsName('Crear pelicula'))
+    console.log(`${this.endpoint}/peliculas/pelicula`)
+    return this.http.doPost<Pelicula, boolean>(`${this.endpoint}/peliculas/pelicula`, pelicula, this.http.optsName('Crear pelicula'))
   }
 }

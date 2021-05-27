@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pelicula } from '../../shared/model/pelicula';
 
 @Component({
@@ -9,6 +9,7 @@ import { Pelicula } from '../../shared/model/pelicula';
 export class PeliculaComponent implements OnInit {
 
   @Input() peliculas: Pelicula[]
+  @Output() reservado = new EventEmitter<boolean>()
   public peliculaSeleccionada: Pelicula
 
   constructor() { }
@@ -18,6 +19,10 @@ export class PeliculaComponent implements OnInit {
 
   public conPelicula(pelicula: Pelicula) {
     this.peliculaSeleccionada = pelicula
+  }
+
+  public enReserva(reserva: boolean) {
+    this.reservado.emit(reserva)
   }
 
 }

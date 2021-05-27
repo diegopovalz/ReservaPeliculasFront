@@ -6,8 +6,9 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { ListaPeliculasComponent } from './components/lista-peliculas/lista-peliculas.component';
 import { CrearPeliculaComponent } from './components/crear-pelicula/crear-pelicula.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
-import { ReservaPeliculaComponent } from '../reserva/components/reserva-pelicula/reserva-pelicula.component';
+import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
+import { ReservaModule } from '../reserva/reserva.module';
 
 
 @NgModule({
@@ -15,13 +16,14 @@ import { SharedModule } from '@shared/shared.module';
     PeliculasComponent,
     PeliculaComponent,
     ListaPeliculasComponent,
-    CrearPeliculaComponent,
-    ReservaPeliculaComponent
+    CrearPeliculaComponent
   ],
   imports: [
     CommonModule,
     PeliculaRoutingModule,
-    SharedModule
+    CoreModule,
+    SharedModule,
+    ReservaModule
   ]
 })
 export class PeliculaModule { }
