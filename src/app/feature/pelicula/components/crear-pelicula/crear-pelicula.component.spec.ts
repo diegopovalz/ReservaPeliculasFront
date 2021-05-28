@@ -1,4 +1,10 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpService } from '@core/services/http.service';
+import { PeliculaService } from '../../shared/service/pelicula.service';
 
 import { CrearPeliculaComponent } from './crear-pelicula.component';
 
@@ -8,7 +14,15 @@ describe('CrearPeliculaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrearPeliculaComponent ]
+      declarations: [ CrearPeliculaComponent ],
+      imports: [
+        CommonModule,
+        HttpClientModule,
+        RouterTestingModule,
+        ReactiveFormsModule,
+        FormsModule
+      ],
+      providers: [HttpService, PeliculaService]
     })
     .compileComponents();
   });

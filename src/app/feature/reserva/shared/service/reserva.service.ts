@@ -8,11 +8,9 @@ import { Reserva } from '../model/reserva';
 })
 export class ReservaService {
 
-  private endpoint = environment.endpointAPI
-
   constructor(protected http: HttpService) { }
 
   public crearReserva(reserva: Reserva) {
-    return this.http.doPost<Reserva, boolean>(`${this.endpoint}/`, reserva, this.http.optsName('Crear reserva'))
+    return this.http.doPost<Reserva, boolean>(`${environment.endpointAPI}/`, reserva, this.http.optsName('Crear reserva'))
   }
 }

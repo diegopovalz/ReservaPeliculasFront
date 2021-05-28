@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
 import { ReservaPeliculaComponent } from './components/reserva-pelicula/reserva-pelicula.component';
+import { ReservaService } from './shared/service/reserva.service';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,9 @@ import { ReservaPeliculaComponent } from './components/reserva-pelicula/reserva-
   ],
   exports: [
     ReservaPeliculaComponent
+  ],
+  providers: [
+    ReservaService
   ]
 })
 export class ReservaModule { }

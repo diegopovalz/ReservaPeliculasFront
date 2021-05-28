@@ -4,7 +4,9 @@ import { environment } from 'src/environments/environment';
 import { Producto } from '../model/producto';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductoService {
 
   constructor(protected http: HttpService) {}

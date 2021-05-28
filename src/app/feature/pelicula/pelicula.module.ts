@@ -9,6 +9,7 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
 import { ReservaModule } from '../reserva/reserva.module';
+import { PeliculaService } from './shared/service/pelicula.service';
 
 
 @NgModule({
@@ -24,6 +25,9 @@ import { ReservaModule } from '../reserva/reserva.module';
     CoreModule,
     SharedModule,
     ReservaModule
+  ],
+  providers: [
+    PeliculaService
   ]
 })
 export class PeliculaModule { }

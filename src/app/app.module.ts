@@ -9,6 +9,7 @@ import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { PeliculaModule } from './feature/pelicula/pelicula.module';
 import { ReservaModule } from './feature/reserva/reserva.module';
+import { TrmService } from '@home/shared/service/trm.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ReservaModule } from './feature/reserva/reserva.module';
     PeliculaModule,
     ReservaModule
   ],
-  providers: [CookieService],
+  providers: [TrmService, CookieService],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
