@@ -28,7 +28,7 @@
         class="form-control" formControlName="descripcion" autocomplete="off">
     </div>
   </div>
-  <button type="button" class="btn btn-primary" 
+  <button type="button" class="btn btn-primary" id="btnCrear"
         [disabled]="!(peliculaForm.controls.nombre.value && peliculaForm.controls.autor.value && peliculaForm.controls.descripcion.value)"
         (click)="crear()">Guardar</button>
 </form>

@@ -3,7 +3,7 @@
     <div class="input-group">
         <input type="search" class="form-control rounded" placeholder="Nombre de Película (Coincidencia exacta)" aria-label="Search"
           aria-describedby="search-addon" #nombrePelicula/>
-        <button type="button" class="btn btn-outline-primary ml-1" (click)="conseguirPelicula(nombrePelicula.value)">Buscar</button>   
+        <button type="button" id="btnBuscar" class="btn btn-outline-primary ml-1" (click)="conseguirPelicula(nombrePelicula.value)">Buscar</button>   
         <button type="button" class="btn btn-outline-primary ml-1" (click)="nombrePelicula.value = ''; conseguirPelicula()" #limpiarBtn>Limpiar</button>
     </div>
 </div>

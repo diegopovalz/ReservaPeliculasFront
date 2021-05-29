@@ -13,6 +13,9 @@ exports.config = {
   specs: [
     './src/**/*.e2e-spec.ts'
   ],
+  exclude: [
+    './src/**/producto.e2e-spec.ts'
+  ],
   capabilities: {
     'browserName': 'chrome'
   },
