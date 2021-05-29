@@ -19,6 +19,6 @@ export class PeliculaService {
   }
 
   public crearPelicula(pelicula: Pelicula) {
-    return this.http.doPost<Pelicula, boolean>(`${environment.endpointAPI}/peliculas/pelicula`, pelicula, this.http.optsName('Crear pelicula'))
+    return this.http.doPost<Pelicula, number>(`${environment.endpointAPI}/peliculas/pelicula`, pelicula, this.http.optsName('Crear pelicula'))
   }
 }
