@@ -50,11 +50,6 @@ export class ReservaPeliculaComponent implements OnInit {
     this.reserva.fechaReserva = fecha.split("-").reverse().join("-")
   }
 
-  public limpiarCampos() {
-    this.reserva.tipoReserva = undefined
-    this.crearReservaForm.reset()
-  }
-
   public crearReserva() {
     this.http.crearReserva(this.reserva).subscribe((res: any) => {
       this.titulo = 'Reserva creada'
@@ -78,14 +73,18 @@ export class ReservaPeliculaComponent implements OnInit {
     })
   }
 
-  private cerrarModal() {
-    this.cerrarBtn.nativeElement.click()
-    this.limpiarAlerta()
+  public limpiarCampos() {
+    this.reserva.tipoReserva = undefined
+    this.crearReservaForm.reset()
   }
 
   private limpiarAlerta() {
     this.titulo = ''
-    this.mensaje = ''
+  }
+
+  private cerrarModal() {
+    this.cerrarBtn.nativeElement.click()
+    this.limpiarAlerta()
   }
 
 }
