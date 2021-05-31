@@ -32,7 +32,7 @@ export class CrearPeliculaComponent implements OnInit {
       this.peliculaForm.reset()
     }, (err: any) => {
       this.titulo = 'Error'
-      this.mensaje = `La película no pudo ser creada. Mensaje: ${err.error?.mensaje}`
+      this.mensaje = `La película no pudo ser creada. Mensaje: ${err.error && err.error.mensaje ? err.error.mensaje : 'No se ha podido establecer conexión con el servidor'}`
       this.exito = false
     })
     this.limpiarAlerta()
@@ -48,7 +48,6 @@ export class CrearPeliculaComponent implements OnInit {
 
   private limpiarAlerta() {
     this.titulo = ''
-    this.mensaje = ''
   }
 
 }

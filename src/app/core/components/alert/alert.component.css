@@ -1,0 +1,7 @@
+@media only screen and (min-width: 790px) {
+    .alert {
+        position: absolute;
+        top: 30vh;
+        left: 50vw;
+    }
+}

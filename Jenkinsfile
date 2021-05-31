@@ -30,19 +30,19 @@ pipeline {
         }
     }
 
-    stage('Install node modules') {
+    /*stage('Install node modules') {
       steps{
         echo "------------>Installing<------------"
         sh 'npm install'
       }
     }
 
-    /*stage('Lint test') {
+    stage('Lint test') {
       steps{
         echo "------------>Lint Analysis<------------"
         sh 'npm run lint'
       }
-    }*/
+    }
 
     stage('Code Coverage Tests') {
       steps{
@@ -56,7 +56,7 @@ pipeline {
         echo "------------>E2E Testing<------------"
         sh 'npm run e2e'
       }
-    }
+    }*/
 
     stage('Static Code Analysis') {
       steps{
@@ -67,12 +67,12 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    /*stage('Build') {
       steps{
         echo "------------>Building<------------"
         sh 'npm run build'
       }
-    }
+    }*/
 
   }
 

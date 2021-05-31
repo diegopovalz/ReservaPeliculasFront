@@ -7,7 +7,7 @@ export class ReservaPage {
     private botonReservar = element(by.css('button#btnReservar'))
 
     async escogerReservaEstandar() {
-        browser.sleep(100)
+        browser.sleep(500)
         await this.selectTipoReserva.click()
     }
 

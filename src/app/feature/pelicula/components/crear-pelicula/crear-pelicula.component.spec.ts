@@ -62,6 +62,6 @@ describe('CrearPeliculaComponent', () => {
     component.peliculaForm.controls.descripcion.setValue('Descripcion')
     expect(component.peliculaForm.valid).toBeTruthy()
     component.crear();
-    expect(component.titulo).toBe('Película creada')
+    expect(component.mensaje).toContain('La película fue creada con éxito')
   })
 });
