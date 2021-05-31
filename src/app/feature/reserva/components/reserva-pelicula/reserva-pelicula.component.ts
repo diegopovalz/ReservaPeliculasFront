@@ -17,6 +17,7 @@ export class ReservaPeliculaComponent implements OnInit {
   crearReservaForm: FormGroup
 
   valorReserva: number | string
+  fechaActual: string
   reserva: Reserva = {}
   titulo: string
   mensaje: string
@@ -25,7 +26,16 @@ export class ReservaPeliculaComponent implements OnInit {
   constructor(private http: ReservaService) { }
 
   ngOnInit(): void {
+    this.anularFechasAnteriores()
     this.construirForm()
+  }
+
+  private anularFechasAnteriores() {
+    let date = new Date()
+    const anio = date.getFullYear()
+    const mes: string = ((date.getMonth() + 1) + "").padStart(2, '0')
+    const dia: string = (date.getDate() + "").padStart(2, '0')
+    this.fechaActual = `${anio}-${mes}-${dia}`
   }
 
   public asignarTipo(tipo: string) {

@@ -33,7 +33,7 @@
                 <label>Fecha de Reserva</label>
               </div>
               <div class="col-md-6">
-                <input validar type="date" class="form-control" name="fecha" id="fechaReserva" formControlName="fechaReserva" (input)="conFecha(fecha.value)" autocomplete="off" #fecha>
+                <input validar type="date" [attr.min]="fechaActual" class="form-control" name="fecha" id="fechaReserva" formControlName="fechaReserva" (input)="conFecha(fecha.value)" autocomplete="off" #fecha>
               </div>
             </div>
           </form>

@@ -30,7 +30,7 @@ export class ListaPeliculasComponent implements OnInit {
       this.peliculas = res
     }, (err: any) => {
       this.titulo = 'Error'
-      this.mensaje = `No se pudieron conseguir las peliculas. Mensaje: ${err.error?.mensaje}`
+      this.mensaje = `No se pudieron conseguir las peliculas. Mensaje: ${err.error && err.error.mensaje ? err.error.message : 'No se ha podido establecer conexión con el servidor'}`
       this.exito = false
     })
   }
