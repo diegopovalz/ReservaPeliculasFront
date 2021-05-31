@@ -8,5 +8,5 @@
     </div>
 </div>
 <app-pelicula *ngIf="peliculas.length > 0" [peliculas]="peliculas" (reservado)="reservaExitosa($event)"></app-pelicula>
-<p *ngIf="peliculas.length == 0" class="h5">Cargando...</p>
+<p *ngIf="cargando" class="h5">Cargando...</p>
 <app-alert *ngIf="titulo && mensaje" [titulo]="titulo" [mensaje]="mensaje" [exito]="exito"></app-alert>

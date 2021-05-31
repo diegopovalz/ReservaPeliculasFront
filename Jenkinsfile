@@ -37,12 +37,12 @@ pipeline {
       }
     }
 
-    stage('Lint test') {
+    /*stage('Lint test') {
       steps{
         echo "------------>Lint Analysis<------------"
         sh 'npm run lint'
       }
-    }
+    }*/
 
     stage('Code Coverage Tests') {
       steps{

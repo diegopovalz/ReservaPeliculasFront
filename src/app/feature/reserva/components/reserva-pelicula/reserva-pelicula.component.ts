@@ -51,15 +51,16 @@ export class ReservaPeliculaComponent implements OnInit {
   }
 
   public limpiarCampos() {
-    this.reserva.tipoReserva = ''
+    this.reserva.tipoReserva = undefined
     this.crearReservaForm.reset()
   }
 
-  public crearReserva() {    
+  public crearReserva() {
     this.http.crearReserva(this.reserva).subscribe((res: any) => {
       this.titulo = 'Reserva creada'
       this.mensaje = `La reserva fue creada con éxito. Fecha de devolución: ${res.valor}`
       this.exito = true
+      this.reserva.pelicula = undefined
       this.reservado.emit(true)
     }, (err: any) => {
       this.titulo = 'Error'

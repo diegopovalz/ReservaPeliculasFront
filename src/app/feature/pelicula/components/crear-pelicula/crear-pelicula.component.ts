@@ -35,6 +35,7 @@ export class CrearPeliculaComponent implements OnInit {
       this.mensaje = `La película no pudo ser creada. Mensaje: ${err.error?.mensaje}`
       this.exito = false
     })
+    this.limpiarAlerta()
   }
 
   private construirForm() {
@@ -43,6 +44,11 @@ export class CrearPeliculaComponent implements OnInit {
       autor: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_NOMBRE_O_AUTOR)]),
       descripcion: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO), Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_DESCRIPCION)])
     })
+  }
+
+  private limpiarAlerta() {
+    this.titulo = ''
+    this.mensaje = ''
   }
 
 }

@@ -19,6 +19,7 @@ export class ListaPeliculasComponent implements OnInit {
   titulo: string
   mensaje: string
   exito: boolean = false
+  cargando = true
   constructor(protected service: PeliculaService) { }
 
   ngOnInit(): void {
@@ -27,8 +28,16 @@ export class ListaPeliculasComponent implements OnInit {
 
   private conseguirPeliculas() {
     return this.service.conseguirPeliculas().subscribe((res: Pelicula[]) => {
+      this.cargando = false
+      if(res.length < 1) {
+        this.titulo = 'Aviso'
+        this.mensaje = `No hay peliculas por reservar`
+        this.exito = false
+        return
+      }
       this.peliculas = res
     }, (err: any) => {
+      this.cargando = false
       this.titulo = 'Error'
       this.mensaje = `No se pudieron conseguir las peliculas. Mensaje: ${err.error && err.error.mensaje ? err.error.message : 'No se ha podido establecer conexión con el servidor'}`
       this.exito = false
