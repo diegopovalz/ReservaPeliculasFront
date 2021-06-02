@@ -27,13 +27,12 @@ export class ListaPeliculasComponent implements OnInit {
   }
 
   private conseguirPeliculas() {
+    this.limpiarAlerta()
     this.service.conseguirPeliculas().subscribe((res: Pelicula[]) => {
       if(res.length < 1) {
         this.titulo = 'Aviso'
         this.mensaje = `No hay peliculas por reservar`
         this.exito = false
-        this.peliculas = []
-        return
       }
       this.peliculas = res
     }, (err: any) => {
@@ -42,10 +41,10 @@ export class ListaPeliculasComponent implements OnInit {
       this.exito = false
     })
     this.cargando = false
-    this.limpiarAlerta()
   }
 
   public conseguirPelicula(nombre?: string) {
+    this.limpiarAlerta()
     if(!nombre || nombre === '') {
       this.conseguirPeliculas()
       return
@@ -58,7 +57,6 @@ export class ListaPeliculasComponent implements OnInit {
       this.mensaje = `No se pudo conseguir la pelicula. Mensaje: ${err.error?.mensaje}`
       this.exito = false
     })
-    this.limpiarAlerta()
   }
 
   public reservaExitosa(resultadoExito: boolean) {

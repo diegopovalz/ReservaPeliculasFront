@@ -51,6 +51,7 @@ export class ReservaPeliculaComponent implements OnInit {
   }
 
   public crearReserva() {
+    this.limpiarAlerta()
     this.http.crearReserva(this.reserva).subscribe((res: any) => {
       this.titulo = 'Reserva creada'
       this.mensaje = `La reserva fue creada con éxito. Fecha de devolución: ${res.valor}`
@@ -84,7 +85,6 @@ export class ReservaPeliculaComponent implements OnInit {
 
   private cerrarModal() {
     this.cerrarBtn.nativeElement.click()
-    this.limpiarAlerta()
   }
 
 }
