@@ -49,6 +49,24 @@ describe('workspace-project pelicula', () => {
         expect(pelicula.conseguirTextoAlerta()).toEqual('Error')
     })
 
+    it('deberia mostrar un valor de 20 cuando el tipo es Estandar', () => {
+        page.navigateTo()
+        navBar.clickBotonPeliculas()
+        pelicula.clickListarPeliculas()
+        pelicula.clickReservar()
+        reserva.escogerReservaEstandar()
+        expect(reserva.conseguirTextoValor()).toEqual('20')
+    })
+
+    it('deberia mostrar un valor de 50 cuando el tipo es Premium', () => {
+        page.navigateTo()
+        navBar.clickBotonPeliculas()
+        pelicula.clickListarPeliculas()
+        pelicula.clickReservar()
+        reserva.escogerReservaPremium()
+        expect(reserva.conseguirTextoValor()).toEqual('50')
+    })
+
     it('deberia crear una reserva', () => {
         page.navigateTo()
         navBar.clickBotonPeliculas()
@@ -57,6 +75,6 @@ describe('workspace-project pelicula', () => {
         reserva.escogerReservaEstandar()
         reserva.asignarFechaReserva('05-24-2021')
         reserva.clickReservar()
-        expect(pelicula.conseguirTituloAlertaReserva()).toEqual('Reserva creada')
+        expect(pelicula.contarPeliculas()).toBe(0)
     })
 })

@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   endpoint: '/prospectos-vida',
   endpointTRM:  'https://trm-colombia.vercel.app/',
-  endpointAPI: 'http://localhost:8080/reserva'
+  endpointAPI: '/reserva'
 };
 
 /*
